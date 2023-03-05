@@ -24,24 +24,9 @@ class Car extends VehicleModule {
     this.fuel = 10;
     this.scheduleService = false;
   }
-
-  checkService() {
-    if (this.mileage > 30000) {
-      this.scheduleService = true;
-      return this.scheduleService;
-    }
-  }
-
-  start() {
-    if (this.fuel > 0) {
-      console.log("Engine Running.");
-      return (this.started = true);
-    } else {
-      console.log("Fuel Empty");
-      return (this.started = false);
-    }
-  }
-
+  // ****************************************
+  // Load Passenger Parameter
+  //*****************************************/
   loadPassenger(num) {
     if (this.passenger < this.maxPassengers) {
       if (num + this.passenger <= this.maxPassengers) {
@@ -54,6 +39,27 @@ class Car extends VehicleModule {
       }
     } else {
       console.log(this.model + " " + this.make + " is full");
+    }
+  }
+  // ****************************************
+  // Start Engine Parameter
+  //*****************************************/
+  start() {
+    if (this.fuel > 0) {
+      console.log("Engine Running.");
+      return (this.started = true);
+    } else {
+      console.log("Fuel Empty");
+      return (this.started = false);
+    }
+  }
+  // ****************************************
+  // Schedule Service Parameters
+  //*****************************************/
+  scheduleService() {
+    if (this.mileage > 30000) {
+      this.scheduleService = true;
+      return this.scheduleService;
     }
   }
 }
